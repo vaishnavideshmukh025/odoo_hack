@@ -1,19 +1,18 @@
 import { NavLink } from 'react-router-dom'
 import {
-  Grid,
-  Users,
-  FolderOpen,
-  ClipboardList,
-  FileText,
-  UserCircle,
   Home,
+  Car,
+  ClipboardList,
+  Wrench,
+  UserCircle,
+  FileText,
 } from 'lucide-react'
 
 const links = [
   { label: 'Dashboard', to: '/', icon: Home },
-  { label: 'Departments', to: '/departments', icon: FolderOpen },
-  { label: 'Employees', to: '/employees', icon: Users },
-  { label: 'Categories', to: '/categories', icon: ClipboardList },
+  { label: 'Vehicles', to: '/vehicles', icon: Car },
+  { label: 'Breakdowns', to: '/breakdowns', icon: ClipboardList },
+  { label: 'Mechanics', to: '/mechanics', icon: Wrench },
   { label: 'Profile', to: '/profile', icon: UserCircle },
   { label: 'Reports', to: '/reports', icon: FileText },
 ]
@@ -27,13 +26,13 @@ function Sidebar({ isOpen }) {
         <div className="mb-4 flex items-center gap-3 text-slate-900">
           <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-600 text-white shadow-sm">AF</div>
           <div>
-            <p className="text-sm font-medium">AssetFlow</p>
-            <p className="text-xs text-slate-500">ERP platform</p>
+            <p className="text-sm font-medium">Roadside Assist</p>
+            <p className="text-xs text-slate-500">Breakdown support</p>
           </div>
         </div>
         <div className="rounded-3xl bg-slate-50 p-4 text-slate-600">
           <p className="text-xs uppercase tracking-[0.2em] text-slate-400">Quick Links</p>
-          <p className="mt-2 text-sm leading-6">Access departments, employees, categories, and reports.</p>
+          <p className="mt-2 text-sm leading-6">Track vehicles, breakdown requests, mechanics, and support updates.</p>
         </div>
       </div>
 

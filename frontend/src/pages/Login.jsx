@@ -24,7 +24,7 @@ function Login() {
       <div className="mx-auto max-w-md rounded-3xl bg-white p-8 shadow-xl shadow-slate-200/50">
         <div className="mb-8 text-center">
           <h1 className="text-3xl font-semibold text-slate-900">Welcome back</h1>
-          <p className="mt-3 text-sm text-slate-500">Log in to manage assets, departments, and employees.</p>
+          <p className="mt-3 text-sm text-slate-500">Log in to manage vehicles, breakdown requests, and roadside support.</p>
         </div>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">

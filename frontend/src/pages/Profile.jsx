@@ -24,7 +24,7 @@ function Profile() {
               <div className="rounded-3xl bg-slate-50 p-6">
                 <p className="text-sm text-slate-500">Role</p>
                 <p className="mt-3 text-lg font-semibold text-slate-900">{user?.role || 'Employee'}</p>
-                <p className="mt-4 text-sm text-slate-600">Manage your profile preferences, notifications, and security settings.</p>
+                <p className="mt-4 text-sm text-slate-600">Manage your account details and roadside support preferences.</p>
               </div>
             </div>
           </div>

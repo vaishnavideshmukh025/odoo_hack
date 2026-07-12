@@ -13,12 +13,12 @@ function Reports() {
           <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
             <div className="grid gap-6 lg:grid-cols-2">
               <div className="rounded-3xl bg-blue-50 p-6">
-                <h2 className="text-xl font-semibold text-slate-900">Inventory summary</h2>
-                <p className="mt-3 text-sm text-slate-600">A snapshot of asset categories, allocation, and availability.</p>
+                <h2 className="text-xl font-semibold text-slate-900">Vehicle support summary</h2>
+                <p className="mt-3 text-sm text-slate-600">A snapshot of registered vehicles, active requests, and assigned support.</p>
               </div>
               <div className="rounded-3xl bg-slate-50 p-6">
-                <h2 className="text-xl font-semibold text-slate-900">Audit insights</h2>
-                <p className="mt-3 text-sm text-slate-600">Track compliance, maintenance checks, and recent operational activity.</p>
+                <h2 className="text-xl font-semibold text-slate-900">Service insights</h2>
+                <p className="mt-3 text-sm text-slate-600">Track support response volume, request status, and recent service activity.</p>
               </div>
             </div>
           </div>

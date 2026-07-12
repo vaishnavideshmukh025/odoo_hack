@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { BarChart3, Box, CalendarDays, CheckCircle2, ClipboardList, PlusCircle, Wrench } from 'lucide-react'
+import { Car, ClipboardList, PlusCircle, Wrench, UserCircle2, MapPin } from 'lucide-react'
 import Sidebar from '../components/Sidebar'
 import Navbar from '../components/Navbar'
 import KPIcard from '../components/KPIcard'
@@ -53,24 +53,22 @@ function Dashboard() {
                   </div>
                   <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
                     <button className="rounded-3xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-sm hover:bg-blue-700">
-                      Register Asset
+                      Register Vehicle
                     </button>
                     <button className="rounded-3xl bg-slate-100 px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-200">
-                      Book Resource
+                      Report Breakdown
                     </button>
                     <button className="rounded-3xl bg-slate-100 px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-200">
-                      Raise Maintenance
+                      View Mechanics
                     </button>
                   </div>
                 </div>
               </div>
 
               <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-                <KPIcard title="Assets Available" value={metrics?.assetsAvailable ?? '...'} icon={<Box size={24} />} subtitle="Current available stock" />
-                <KPIcard title="Assets Allocated" value={metrics?.assetsAllocated ?? '...'} icon={<ClipboardList size={24} />} subtitle="Active assignments" />
-                <KPIcard title="Active Bookings" value={metrics?.activeBookings ?? '...'} icon={<CalendarDays size={24} />} subtitle="Bookings in progress" />
-                <KPIcard title="Maintenance Today" value={metrics?.maintenanceToday ?? '...'} icon={<Wrench size={24} />} subtitle="Scheduled checks" />
-                <KPIcard title="Upcoming Returns" value={metrics?.upcomingReturns ?? '...'} icon={<CheckCircle2 size={24} />} subtitle="Due this week" />
+                <KPIcard title="Vehicles" value={metrics?.vehicles ?? '...'} icon={<Car size={24} />} subtitle="Registered vehicles" />
+                <KPIcard title="Breakdowns" value={metrics?.breakdowns ?? '...'} icon={<ClipboardList size={24} />} subtitle="Open assistance requests" />
+                <KPIcard title="Mechanics" value={metrics?.mechanics ?? '...'} icon={<Wrench size={24} />} subtitle="Available roadside support" />
               </div>
 
               <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
@@ -88,19 +86,19 @@ function Dashboard() {
                     <table className="w-full text-left text-sm text-slate-700">
                       <thead className="border-b border-slate-200 text-slate-500">
                         <tr>
-                          <th className="py-3">Activity</th>
-                          <th className="py-3">User</th>
+                          <th className="py-3">Issue</th>
+                          <th className="py-3">Vehicle</th>
                           <th className="py-3">Status</th>
-                          <th className="py-3">Date</th>
+                          <th className="py-3">Location</th>
                         </tr>
                       </thead>
                       <tbody>
                         {activities?.map((activity) => (
                           <tr key={activity.id} className="border-b border-slate-200 last:border-b-0">
-                            <td className="py-4">{activity.action}</td>
-                            <td className="py-4">{activity.user}</td>
+                            <td className="py-4">{activity.issue_description}</td>
+                            <td className="py-4">{activity.vehicle_id}</td>
                             <td className="py-4 text-slate-600">{activity.status}</td>
-                            <td className="py-4">{activity.date}</td>
+                            <td className="py-4">{activity.latitude}, {activity.longitude}</td>
                           </tr>
                         ))}
                       </tbody>

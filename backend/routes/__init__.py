@@ -1,6 +1,6 @@
 from flask import Blueprint
 from .auth_routes import auth_bp
-from .vehicle_routes import vehicle_bp
+from utils.vehicle_routes import vehicle_bp
 from .breakdown_routes import breakdown_bp
 from .mechanic_routes import mechanic_bp
 from .admin_routes import admin_bp

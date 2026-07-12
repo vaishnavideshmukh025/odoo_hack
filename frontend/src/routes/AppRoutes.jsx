@@ -3,9 +3,9 @@ import Login from '../pages/Login'
 import Signup from '../pages/Signup'
 import ForgotPassword from '../pages/ForgotPassword'
 import Dashboard from '../pages/Dashboard'
-import Departments from '../pages/Departments'
-import Employees from '../pages/Employees'
-import Categories from '../pages/Categories'
+import Vehicles from '../pages/Vehicles'
+import Breakdowns from '../pages/Breakdowns'
+import Mechanics from '../pages/Mechanics'
 import Profile from '../pages/Profile'
 import Reports from '../pages/Reports'
 import ProtectedRoute from '../components/ProtectedRoute'
@@ -28,26 +28,26 @@ function AppRoutes() {
         }
       />
       <Route
-        path="/departments"
+        path="/vehicles"
         element={
           <ProtectedRoute isAuthenticated={Boolean(user)}>
-            <Departments />
+            <Vehicles />
           </ProtectedRoute>
         }
       />
       <Route
-        path="/employees"
+        path="/breakdowns"
         element={
           <ProtectedRoute isAuthenticated={Boolean(user)}>
-            <Employees />
+            <Breakdowns />
           </ProtectedRoute>
         }
       />
       <Route
-        path="/categories"
+        path="/mechanics"
         element={
           <ProtectedRoute isAuthenticated={Boolean(user)}>
-            <Categories />
+            <Mechanics />
           </ProtectedRoute>
         }
       />

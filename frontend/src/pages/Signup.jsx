@@ -17,7 +17,7 @@ function Signup() {
       <div className="mx-auto max-w-md rounded-3xl bg-white p-8 shadow-xl shadow-slate-200/50">
         <div className="mb-8 text-center">
           <h1 className="text-3xl font-semibold text-slate-900">Create your account</h1>
-          <p className="mt-3 text-sm text-slate-500">Register as an employee to access AssetFlow.</p>
+          <p className="mt-3 text-sm text-slate-500">Register to access the breakdown assistance dashboard.</p>
         </div>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">

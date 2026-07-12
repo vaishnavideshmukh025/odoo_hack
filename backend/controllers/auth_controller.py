@@ -1,4 +1,4 @@
-from flask import request
+from flask import request, g
 from flask_jwt_extended import create_access_token
 from flask_bcrypt import generate_password_hash, check_password_hash
 from models.user import User
@@ -39,3 +39,7 @@ def login_user():
 
     token = create_access_token(identity=user.id)
     return success_response("Login successful", {"token": token, "user": {"id": user.id, "name": user.name, "email": user.email}}, 200)
+
+
+def get_profile():
+    return success_response("Profile retrieved", {"id": g.user.id, "name": g.user.name, "email": g.user.email, "phone": g.user.phone})
