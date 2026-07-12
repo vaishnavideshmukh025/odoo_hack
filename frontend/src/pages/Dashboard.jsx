@@ -14,15 +14,15 @@ function Dashboard() {
   const [notifications, setNotifications] = useState([])
   const [activities, setActivities] = useState([])
   const [loading, setLoading] = useState(true)
-  const { api, user } = useAuth()
+  const { user } = useAuth()
 
   useEffect(() => {
     const loadDashboard = async () => {
       try {
         const [metricsResponse, notificationsResponse, activitiesResponse] = await Promise.all([
-          getDashboardMetrics(api),
-          getNotifications(api),
-          getRecentActivities(api),
+          getDashboardMetrics(),
+          getNotifications(),
+          getRecentActivities(),
         ])
 
         setMetrics(metricsResponse)
@@ -34,7 +34,7 @@ function Dashboard() {
     }
 
     loadDashboard()
-  }, [api])
+  }, [])
 
   return (
     <div className="min-h-screen bg-slate-50">

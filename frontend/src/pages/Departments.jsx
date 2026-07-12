@@ -1,12 +1,10 @@
 import { useEffect, useMemo, useState } from 'react'
 import { PlusCircle, Edit3, Trash2, Search, ChevronLeft, ChevronRight } from 'lucide-react'
 import { useForm } from 'react-hook-form'
-import { useAuth } from '../services/authService.jsx'
 import { fetchDepartments, createDepartment, updateDepartment, deleteDepartment } from '../services/departmentService'
 import LoadingSpinner from '../components/LoadingSpinner'
 
 function Departments() {
-  const { api } = useAuth()
   const [departments, setDepartments] = useState([])
   const [loading, setLoading] = useState(true)
   const [search, setSearch] = useState('')
@@ -20,15 +18,15 @@ function Departments() {
     const loadDepartments = async () => {
       setLoading(true)
       try {
-        const data = await fetchDepartments(api)
-        setDepartments(data)
+        const data = await fetchDepartments()
+        setDepartments(data || [])
       } finally {
         setLoading(false)
       }
     }
 
     loadDepartments()
-  }, [api])
+  }, [])
 
   const filteredDepartments = useMemo(() => {
     return departments.filter((department) => department.name.toLowerCase().includes(search.toLowerCase()))
@@ -53,11 +51,11 @@ function Departments() {
   const handleSave = async (values) => {
     try {
       if (selectedDepartment) {
-        await updateDepartment(api, selectedDepartment.id, values)
+        await updateDepartment(selectedDepartment.id, values)
         setDepartments((prev) => prev.map((item) => (item.id === selectedDepartment.id ? { ...item, ...values } : item)))
       } else {
-        const newDepartment = await createDepartment(api, values)
-        setDepartments((prev) => [newDepartment, ...prev])
+        const newDepartment = await createDepartment(values)
+        setDepartments((prev) => [...prev, newDepartment])
       }
       closeModal()
     } catch (error) {
@@ -66,7 +64,7 @@ function Departments() {
   }
 
   const handleDelete = async (departmentId) => {
-    await deleteDepartment(api, departmentId)
+    await deleteDepartment(departmentId)
     setDepartments((prev) => prev.filter((department) => department.id !== departmentId))
   }
 

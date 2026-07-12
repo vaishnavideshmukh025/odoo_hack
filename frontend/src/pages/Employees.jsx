@@ -1,11 +1,9 @@
 import { useEffect, useMemo, useState } from 'react'
-import { useAuth } from '../services/authService.jsx'
 import { fetchEmployees } from '../services/employeeService'
 import LoadingSpinner from '../components/LoadingSpinner'
 import { Search, Filter, User, Briefcase, CheckCircle2 } from 'lucide-react'
 
 function Employees() {
-  const { api } = useAuth()
   const [employees, setEmployees] = useState([])
   const [loading, setLoading] = useState(true)
   const [search, setSearch] = useState('')
@@ -16,15 +14,15 @@ function Employees() {
     const loadEmployees = async () => {
       setLoading(true)
       try {
-        const data = await fetchEmployees(api)
-        setEmployees(data)
+        const data = await fetchEmployees()
+        setEmployees(data || [])
       } finally {
         setLoading(false)
       }
     }
 
     loadEmployees()
-  }, [api])
+  }, [])
 
   const filteredEmployees = useMemo(() => {
     return employees.filter((employee) => {
